@@ -1,14 +1,19 @@
 import { useState } from "react"
 import { Layout } from "../components/Layout"
+import { useAuth } from "../context/UserContext"
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
+  const [id, setId] = useState("")
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
+  const { register } = useAuth()
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setError("")
     setSuccess("")
@@ -19,18 +24,27 @@ const Register = () => {
     }
 
     const newUser = {
+      id: crypto.randomUUID(),
       username,
       email,
       password
     }
 
-    console.log(newUser)
-    setSuccess("Usuario registrado con éxito")
+    try {
+      await register(newUser)  // llama al contexto y registra
+      setSuccess("Usuario registrado con éxito")
 
-    setUsername("")
-    setEmail("")
-    setPassword("")
+      setId(null)
+      setUsername("")
+      setEmail("")
+      setPassword("")
+      navigate("/")
+
+    } catch (err) {
+      setError("Error al registrar el usuario")
+    }
   }
+
 
   return (
     <Layout>
@@ -63,7 +77,7 @@ const Register = () => {
               value={password}
             />
           </div>
-          <button>Ingresar</button>
+          <button>Registrarse</button>
         </form>
 
         {
@@ -71,6 +85,7 @@ const Register = () => {
         }
         {
           success && <p style={{ color: "green" }}>{success}</p>
+
         }
       </section>
     </Layout>

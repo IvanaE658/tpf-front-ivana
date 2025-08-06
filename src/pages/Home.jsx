@@ -11,6 +11,8 @@ const Home = () => {
   const [descriptionEdit, setDescriptionEdit] = useState("")
   const [categoryEdit, setCategoryEdit] = useState("")
   const [imageEdit, setImageEdit] = useState("")
+  //const [prodBuscar, setProdBuscar] = useState("")
+
 
   // simulando existencia del usuario, proximamente este estado será global
   const { user } = useAuth()
@@ -19,12 +21,15 @@ const Home = () => {
     const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
     const data = await response.json()
     setProducts(data)
+
   }
 
   // El array vacío (dependencias) espera a que ejecute el return del jsx. Si tiene algo, useEffect se va a ejecutar cada vez que se modifique lo que este dentro de la dependencia.
   useEffect(() => {
     fetchingProducts()
   }, [])
+
+
 
   const handleDelete = async (id) => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`, { method: "DELETE" })
@@ -34,6 +39,8 @@ const Home = () => {
       // fetchingProducts()
     }
   }
+
+
 
   const handleOpenEdit = (product) => {
     setShowPopup(true)
@@ -83,6 +90,23 @@ const Home = () => {
     }
   }
 
+  {/* //desde aca ->*/ }
+  // const handleSearcher = async (setProdBuscar) => {
+  //   try {
+  //     setLoading(true);
+  //     const response = await fetch(`https://fakestoreapi.com/products/${setProdBuscar}`);
+  //     // const data = await res.json();
+  //     // setProductos(data);
+  //     const data = await response.json()
+  //     setProducts(data)
+  //   } catch (error) {
+  //     console.error('Error al buscar:', error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+
   return (
     <Layout>
       <section>
@@ -111,6 +135,20 @@ const Home = () => {
       <section>
         <h2>Nuestros productos</h2>
         <p>Elegí entre nuestras categorías más populares.</p>
+
+        {/* -------------------------*/}
+        {/* 
+        <div>
+          <input
+            type="text"
+            placeholder="Ingrese una búsqueda"
+            value={prodBuscar}
+          //onChange={handleChange}
+          //onChange={(e) => setProdBuscar(e.target.value)}
+
+          />
+        </div> */}
+
 
 
         {
