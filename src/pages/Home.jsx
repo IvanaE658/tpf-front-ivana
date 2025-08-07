@@ -149,55 +149,61 @@ const Home = () => {
           />
         </div> */}
 
-
-
         {
-          showPopup && <section className="popup-edit">
-            <h2>Editando producto.</h2>
-            <button onClick={() => setShowPopup(null)}>Cerrar</button>
-            <form onSubmit={handleUpdate}>
-              <input
-                type="text"
-                placeholder="Ingrese el titulo"
-                value={titleEdit}
-                onChange={(e) => setTitleEdit(e.target.value)}
-              />
-              <input
-                type="number"
-                placeholder="Ingrese el precio"
-                value={priceEdit}
-                onChange={(e) => setPriceEdit(e.target.value)}
-              />
-              <textarea
-                placeholder="Ingrese la descripción"
-                value={descriptionEdit}
-                onChange={(e) => setDescriptionEdit(e.target.value)}
-              ></textarea>
-              <input
-                type="text"
-                placeholder="Ingrese la categoria"
-                value={categoryEdit}
-                onChange={(e) => setCategoryEdit(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Ingrese la URL de la imagen"
-                value={imageEdit}
-                onChange={(e) => setImageEdit(e.target.value)}
-              />
-              <button>Actualizar</button>
-            </form>
-          </section>
+          showPopup && (
+            <div className="popup-overlay">
+              <section className="popup-edit">
+                <h2>Editando producto.</h2>
+
+                <form onSubmit={handleUpdate}>
+                  <input
+                    type="text"
+                    placeholder="Ingrese el título"
+                    value={titleEdit}
+                    onChange={(e) => setTitleEdit(e.target.value)}
+                  />
+                  <input
+                    type="number"
+                    placeholder="Ingrese el precio"
+                    value={priceEdit}
+                    onChange={(e) => setPriceEdit(e.target.value)}
+                  />
+                  <textarea
+                    placeholder="Ingrese la descripción"
+                    value={descriptionEdit}
+                    onChange={(e) => setDescriptionEdit(e.target.value)}
+                  ></textarea>
+                  <input
+                    type="text"
+                    placeholder="Ingrese la categoría"
+                    value={categoryEdit}
+                    onChange={(e) => setCategoryEdit(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Ingrese la URL de la imagen"
+                    value={imageEdit}
+                    onChange={(e) => setImageEdit(e.target.value)}
+                  />
+                  <button type="submit">Actualizar</button>
+                  <button type="button" onClick={() => setShowPopup(null)}>Cerrar</button>
+                </form>
+              </section>
+            </div>
+          )
         }
+
 
         <div className="product-grid">
           {
             products.map((product) => <div key={product.id}>
-              <h2 key={product.id}>{product.title}</h2>
-              <img width="80px" src={product.image} alt={`Imagen de ${product.title}`} />
-              <p>${product.price}</p>
-              <p>{product.description}</p>
-              <p><strong>{product.category}</strong></p>
+              <div className="product-card">
+                <p key={product.id}><strong>{product.title}</strong></p>
+                <img src={product.image} alt={`Imagen de ${product.title}`} />
+                <p className="price">${product.price}</p>
+                <p className="description">{product.description}</p>
+                <p><strong>{product.category}</strong></p>
+              </div>
               {
                 user && <div>
                   <button onClick={() => handleOpenEdit(product)}>Actualizar</button>
