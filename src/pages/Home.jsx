@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Layout } from "../components/Layout"
 import { useAuth } from "../context/UserContext"
+import { Search } from "../components/Search"
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -11,7 +12,7 @@ const Home = () => {
   const [descriptionEdit, setDescriptionEdit] = useState("")
   const [categoryEdit, setCategoryEdit] = useState("")
   const [imageEdit, setImageEdit] = useState("")
-  //const [prodBuscar, setProdBuscar] = useState("")
+
 
 
   // simulando existencia del usuario, proximamente este estado será global
@@ -90,22 +91,6 @@ const Home = () => {
     }
   }
 
-  {/* //desde aca ->*/ }
-  // const handleSearcher = async (setProdBuscar) => {
-  //   try {
-  //     setLoading(true);
-  //     const response = await fetch(`https://fakestoreapi.com/products/${setProdBuscar}`);
-  //     // const data = await res.json();
-  //     // setProductos(data);
-  //     const data = await response.json()
-  //     setProducts(data)
-  //   } catch (error) {
-  //     console.error('Error al buscar:', error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
 
   return (
     <Layout>
@@ -135,19 +120,7 @@ const Home = () => {
       <section>
         <h2>Nuestros productos</h2>
         <p>Elegí entre nuestras categorías más populares.</p>
-
-        {/* -------------------------*/}
-        {/* 
-        <div>
-          <input
-            type="text"
-            placeholder="Ingrese una búsqueda"
-            value={prodBuscar}
-          //onChange={handleChange}
-          //onChange={(e) => setProdBuscar(e.target.value)}
-
-          />
-        </div> */}
+        <Search />
 
         {
           showPopup && (
