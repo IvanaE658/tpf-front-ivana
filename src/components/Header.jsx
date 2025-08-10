@@ -8,26 +8,46 @@ const Header = () => {
     logout()
   }
 
+
+
   return (
     <header style={{ backgroundColor: "lightblue" }}>
       <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/85/Logo-Test.png" alt="imagen de logo" />
-      <nav>
-        <ul>
+
+
+
+      <nav className="mi-navbar">
+        <ul class="nav justify-content-end">
           {/* Cambiar elementos a por componentes Link de react-router-dom */}
+          <li class="nav-item"><Link className="nav-link" to="/">Inicio</Link></li>
+          <li class="nav-item"><Link className="nav-link" to="/about">Sobre Nosotros</Link></li>
           {
             user && <>
-              <li><Link to="/">Inicio</Link></li>
-              <li><Link to="/dashboard">Dashboard</Link></li>
+
+              <li class="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>
+
+            </>
+          }
+          {
+            !user && <>
+              <li class="nav-item"><Link className="nav-link" to="/login">Iniciar Sesión</Link></li>
+
+            </>
+          }
+
+          {
+            user && <>
               <button onClick={handleLogout}>Cerrar sesión</button>
             </>
           }
           {
             !user && <>
-              <li><Link to="/login">Login</Link></li>
-              <li><Link to="/registrate">Registrate</Link></li>
+              <Link to="/registrate" className="btn btn-primary">
+                Regístrate
+              </Link>
             </>
           }
-          <li><Link to="/about">Sobre Nosotros</Link></li>
+
         </ul>
       </nav>
     </header>

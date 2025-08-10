@@ -11,23 +11,6 @@
   font-weight: bold;
 }
 
-/* .popup-edit {
-  background-color: rgb(228, 223, 245);
-  padding: 20px;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  /* fondo oscuro */
-/* display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  /* encima de todo */
-/* }  */
 
 
 .popup-overlay {
@@ -219,6 +202,11 @@ div>p {
 
 header {
   border-radius: 10px;
+}
+
+.mi-navbar {
+  font-size: 18px;
+  font: bold 18px/1.5 'Arial', sans-serif;
 }
 
 footer {

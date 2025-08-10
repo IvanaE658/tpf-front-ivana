@@ -77,7 +77,7 @@ const Register = () => {
               value={password}
             />
           </div>
-          <button>Registrarse</button>
+          <button>Crear cuenta</button>
         </form>
 
         {
