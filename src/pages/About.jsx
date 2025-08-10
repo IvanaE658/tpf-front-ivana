@@ -14,7 +14,7 @@ const About = () => {
       <h3>Qué tecnologías/enfoques se usaron</h3>
       <p>La web está diseñada con una interfaz clara e intuitiva, adaptada para computadoras, tablets y celulares (diseño responsive). Incluye secciones como:</p>
       <p>Inicio: muestra una presentación general del sitio o productos destacados.
-        Catálogo de productos: lista de artículos con imágenes, nombres, precios y botones para ver más detalles o agregar al carrito.</p>
+        Catálogo de productos: lista de artículos con imágenes, nombres, descripciones, precios y botones para editar, actualizar o eliminar del catálogo.</p>
       <p>Panel de administración: para cargar nuevos productos y gestionar el contenido.
       </p>
       <p>El proyecto está desarrollado con tecnologías web modernas como HTML, CSS, JavaScript y React, y puede ser conectado a una base de datos o integrarse con servicios de pago si se desea escalar.</p>
