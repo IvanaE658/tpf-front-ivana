@@ -17,20 +17,21 @@ const Header = () => {
 
 
       <nav className="mi-navbar">
-        <ul class="nav justify-content-end">
+        <ul className="nav justify-content-end">
           {/* Cambiar elementos a por componentes Link de react-router-dom */}
-          <li class="nav-item"><Link className="nav-link" to="/">Inicio</Link></li>
-          <li class="nav-item"><Link className="nav-link" to="/about">Sobre Nosotros</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/">Inicio</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/about">Sobre Nosotros</Link></li>
           {
             user && <>
 
-              <li class="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link>
+              </li>
 
             </>
           }
           {
             !user && <>
-              <li class="nav-item"><Link className="nav-link" to="/login">Iniciar Sesión</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/login">Iniciar Sesión</Link></li>
 
             </>
           }

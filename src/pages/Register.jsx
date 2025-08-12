@@ -22,6 +22,17 @@ const Register = () => {
       setError("Debes completar todos los campos")
       return
     }
+    if (username.length < 4) {
+      setError("El usuario debe tener al menos 4 caracteres.")
+      return
+    }
+
+    if (password.length < 6) {
+      setError("La contraseña debe tener al menos 6 caracteres.")
+      return
+    }
+
+
 
     const newUser = {
       id: crypto.randomUUID(),

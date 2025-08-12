@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const Search = () => {
+
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
@@ -34,6 +35,7 @@ const Search = () => {
   }, [search]);
 
   return (
+
     <div>
       <input
         type="text"
@@ -55,7 +57,7 @@ const Search = () => {
           ))}
         </ul>
       ) : (
-        search && <p>No se encontraron productos</p>
+        search && <p className="error">No se encontraron productos</p>
       )}
     </div>
   );
